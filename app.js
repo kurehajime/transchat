@@ -5,12 +5,11 @@
       'SbmMode':2,
       'Recg:Nbest' : 1
     });
-     if (SpeechRec.availability()) {
-        console.log('Your browser supports SkyWay Speech Recognition.');
+    if (SpeechRec.availability()) {
+        console.log('準備OKです');
     } else {
-        console.error('Your browser does not support SkyWay Speech Recognition.');
+        $("#talk").text('【エラー】お使いのブラウザでは音声認識機能はご利用になれません');
         $("#start_speech").attr('disabled', true);
-        $("#start_speech").text('お使いのブラウザでは音声認識機能はご利用になれません');
     }
     
     $("#start_speech").click(function(){
@@ -19,17 +18,38 @@
         $("#talk").text("");
         $("#start_speech").attr('disabled', true);
     });
+    
+    
+    //音声認識イベント------------------   
     SpeechRec.on_result(function(result){
         console.log(result);
         $("#talk").text(result.candidates[0].speech);
         $("#start_speech").attr('disabled', false);
     });
-    
     SpeechRec.on_proc(function(info){
-            var volume = info.volume;
-            $(".mic").text(volume);
+        var volte=""
+        for(var i=0;i<(100-Math.abs(info.volume|0));i+=10){
+            volte+="|"
+        }
+        $("#talk").text(volte);
     });
-    
+    SpeechRec.on_voice_end(function(){
+        $("#talk").text('. . . !');
+        $("#start_speech").attr('disabled', false);
+    });
+    //エラー処理イベント------------------   
+    SpeechRec.on_error(function(e) {
+        console.error(e);
+        $("#start_speech").attr('disabled', false);
+    }); 
+    SpeechRec.on_voice_too_long(function(){
+        $("#talk").text('【エラー】終端が検出できませんでした');
+        $("#start_speech").attr('disabled', false);
+    });
+    SpeechRec.on_no_result(function(){
+         $("#talk").text('【エラー】認識結果が得られませんでした');
+        $("#start_speech").attr('disabled', false);
+    });
     
     
     
