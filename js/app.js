@@ -2,7 +2,7 @@
    SpeechRec.config({
       'SkyWayKey':'353b9d18-9888-4578-988a-91fdac7f631f',
       'OpusWorkerUrl':'./js/libopus.worker.js',
-      'SbmMode':0,
+      'SbmMode':2,
       'Recg:Nbest' : 1
     });
      if (SpeechRec.availability()) {
@@ -16,12 +16,12 @@
     $("#start_speech").click(function(){
         console.log("音声認識を開始します");
         SpeechRec.start();
-        $("#result").text("");
+        $("#talk").text("");
         $("#start_speech").attr('disabled', true);
     });
     SpeechRec.on_result(function(result){
         console.log(result);
-        $("#result").text(result.candidates[0].speech);
+        $("#talk").text(result.candidates[0].speech);
         $("#start_speech").attr('disabled', false);
     });
     
