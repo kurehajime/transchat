@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <script src="lib/jquery-1.11.3.min.js"></script>
@@ -8,16 +9,25 @@
     <script src="lib/resampler.min.js"></script>
     <script src="lib/speechrec.min.js"></script>
     <link rel="stylesheet" href="app.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>trans chat</title>
 </head>
+
 <body>
-
-
-<div class="balloon" id="balloon">
-    <div id="talk"></div>
-</div>
-<button class="btn btn-primary btn-xl" id="start_speech">認識開始！</button>
-
-<script src="app.js"></script>
+    <div class="balloon" id="balloon">
+        <div id="talk"></div>
+    </div>
+    <div class="voicebox">
+        <i class="fa fa-microphone fa-5x" id="start_speech"></i>
+        <i>Click Me!</i>
+    </div>
+    <div class="searchbox"><i class="fa fa-search fa-3x" id="google"> google</i>
+    </div>
+    <div class="searchbox"><i class="fa fa-search fa-3x" id="wikipedia"> wikipedia</i>
+    </div>
+    <div class="searchbox"><i class="fa fa-search fa-3x" id="twitter"> twitter</i>
+    </div>
+    <script src="app.js"></script>
 </body>
+
 </html>
