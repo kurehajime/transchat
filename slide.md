@@ -131,9 +131,9 @@ SpeechRec.on_result(function (result) {
 
 ### 検索してみる
 
-https://www.google.co.jp/#q=■■■■■
-https://ja.wikipedia.org/w/index.php?search=■■■■■
-https://twitter.com/search?q=■■■■■
+https://www.google.co.jp/#q=■■■■■  
+https://ja.wikipedia.org/w/index.php?search=■■■■■  
+https://twitter.com/search?q=■■■■■  
 
 ### ツイート画面を開く
 
