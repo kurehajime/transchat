@@ -20,7 +20,8 @@
     //音声認識イベント------------------   
     SpeechRec.on_result(function (result) {
         console.log(result);
-        $("#talk").text(result.candidates[0].speech);
+        var result_text = result.candidates[0].speech;
+        $("#talk").text(result_text);
         $("#start_speech").attr('disabled', false);
     });
     SpeechRec.on_proc(function (info) {
