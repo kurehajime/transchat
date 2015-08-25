@@ -1,65 +1,49 @@
 (function ($) {
     SpeechRec.config({
-        'SkyWayKey': '353b9d18-9888-4578-988a-91fdac7f631f',
+        'SkyWayKey': '-------Your API KEY---------',
         'OpusWorkerUrl': './libopus.worker.js',
         'SbmMode': 2,
         'Recg:Nbest': 1
     });
+
+    //初期化確認
     if (SpeechRec.availability()) {
-        console.log('準備OKです');
+        //準備ができた時の処理
     } else {
-        $("#talk").text('【エラー】お使いのブラウザでは音声認識機能はご利用になれません');
-        $("#start_speech").attr('disabled', true);
+        //非対応ブラウザなどの理由により準備ができなかった時の処理
     }
-    $("#start_speech,#balloon").click(function () {
-        console.log("音声認識を開始します");
+
+    //音声認識開始
+    $("#音声認識開始ボタン").click(function () {
         SpeechRec.start();
-        $("#talk").text("");
-        $("#start_speech").attr('disabled', true);
-    });
-    //音声認識イベント------------------   
-    SpeechRec.on_result(function (result) {
-        console.log(result);
-        var result_text = result.candidates[0].speech;
-        $("#talk").text(result_text);
-        $("#start_speech").attr('disabled', false);
-    });
-    SpeechRec.on_proc(function (info) {
-        var volte = ""
-        for (var i = 0; i < (100 - Math.abs(info.volume | 0)); i += 10) {
-            volte += "|"
-        }
-        $("#talk").text(volte);
-    });
-    SpeechRec.on_voice_end(function () {
-        $("#talk").text('. . . !');
-        $("#start_speech").attr('disabled', false);
-    });
-    //エラー処理イベント------------------   
-    SpeechRec.on_error(function (e) {
-        console.error(e);
-        $("#start_speech").attr('disabled', false);
-    });
-    SpeechRec.on_voice_too_long(function () {
-        $("#talk").text('【エラー】終端が検出できませんでした');
-        $("#start_speech").attr('disabled', false);
-    });
-    SpeechRec.on_no_result(function () {
-        $("#talk").text('【エラー】認識結果が得られませんでした');
-        $("#start_speech").attr('disabled', false);
+        //
     });
 
-    //検索イベント------------------
-    $("#google").click(function () {
-        var url = "https://www.google.co.jp/#q=";
-        window.open(url + $("#talk").text());
+    //音声認識成功時イベント
+    SpeechRec.on_result(function (result) {
+        var result_text = result.candidates[0].speech;
+        //
     });
-    $("#wikipedia").click(function () {
-        var url = "https://ja.wikipedia.org/w/index.php?search=";
-        window.open(url + $("#talk").text());
+    //音声認識中イベント
+    SpeechRec.on_proc(function (info) {
+        var vol = info.volume; //ボリューム(-100~0)
+        //
     });
-    $("#twitter").click(function () {
-        var url = "https://twitter.com/search?q=";
-        window.open(url + $("#talk").text());
+    //音声終端イベント
+    SpeechRec.on_voice_end(function () {
+        //
     });
+    //エラー処理イベント
+    SpeechRec.on_error(function (e) {
+        //
+    });
+    //終端が検出出来なかった時のイベント
+    SpeechRec.on_voice_too_long(function () {
+        //
+    });
+    //認識できなかった時のイベント
+    SpeechRec.on_no_result(function () {
+        //
+    });
+
 })(jQuery);
