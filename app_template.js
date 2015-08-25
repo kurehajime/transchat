@@ -1,7 +1,7 @@
 (function ($) {
     SpeechRec.config({
         'SkyWayKey': '-------Your API KEY---------',
-        'OpusWorkerUrl': './lib/libopus.worker.js',
+        'OpusWorkerUrl': './libopus.worker.js',
         'SbmMode': 2,
         'Recg:Nbest': 1
     });
