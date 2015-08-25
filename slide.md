@@ -123,6 +123,19 @@ SpeechRec.on_result(function (result) {
 
 では作ってみましょう。
 
+node.jsを入れてる人は,
+
+```
+npm install http-server -g
+```
+
+で簡易サーバーをインストールして
+
+```
+http-server -o -a 127.0.0.1
+```
+
+でローカルで試すこともできます。
 
 # プラスαを加えてみよう
 
