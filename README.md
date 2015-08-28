@@ -1,3 +1,3 @@
-# transchat
+# voicesearch
 
-http://kurehajime.github.io/transchat/
+http://kurehajime.github.io/voicesearch/
