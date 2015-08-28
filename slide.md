@@ -76,6 +76,9 @@ Plunkerがうまくいかない人はここからローカルに落として下�
 [とりあえず動くもの](https://github.com/kurehajime/voicesearch/archive/gh-pages.zip)
 
 
+
+
+
 #### 最低限動かすための４ステップ
 
 音声認識APIを利用するのは非常に簡単です。
@@ -140,6 +143,9 @@ http-server -o -a 127.0.0.1
 ```
 
 でローカルで試すこともできます。
+
+API について詳しく調べたい場合はこちら
+https://github.com/nttcom/SkyWay-SpeechRec/
 
 # プラスαを加えてみよう
 
