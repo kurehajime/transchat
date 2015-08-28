@@ -69,6 +69,12 @@ localhostなども登録しておけばデバッグする時に捗ります。
 
 [http://goo.gl/OxysXT](http://goo.gl/OxysXT)
 
+Plunkerがうまくいかない人はここからローカルに落として下さい。
+
+[テンプレ](https://github.com/kurehajime/voicesearch/archive/template.zip)
+
+[とりあえず動くもの](https://github.com/kurehajime/voicesearch/archive/gh-pages.zip)
+
 
 #### 最低限動かすための４ステップ
 
