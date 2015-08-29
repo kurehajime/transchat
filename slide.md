@@ -77,7 +77,7 @@ Plunkerがうまくいかない人はここからローカルに落として下�
 
 [デモ](http://kurehajime.github.io/voicesearch/)
 
-
+[githubリポジトリ](https://github.com/kurehajime/voicesearch)
 
 #### 最低限動かすための４ステップ
 
